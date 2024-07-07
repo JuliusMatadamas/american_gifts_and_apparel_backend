@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend and API for the application -American Gifts and Apparel- ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliusMatadamas/american_gifts_and_apparel_backend.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Typescript",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "API",
+    "MVC",
+    "JWT",
+    "BCRYPT."
+  ],
+  "author": "Julio Cesar Matadamas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuliusMatadamas/american_gifts_and_apparel_backend/issues"
+  },
+  "homepage": "https://github.com/JuliusMatadamas/american_gifts_and_apparel_backend#readme"
+}
