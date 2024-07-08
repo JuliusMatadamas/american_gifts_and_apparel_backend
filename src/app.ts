@@ -8,7 +8,8 @@ const PORT = process.env.PORT || 3001;
 const APP = express();
 
 APP.use(cors());
-APP.use(ROUTER);
+APP.use(express.json());
+APP.use('/american_gifts_and_apparel/api/v1', ROUTER);
 db().then(() => {
     console.log(`Connection to database established.`);
 })
