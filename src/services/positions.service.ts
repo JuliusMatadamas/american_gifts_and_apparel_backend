@@ -13,4 +13,8 @@ const GET_POSITIONS_SERVICE = async () => {
     return await POSITION_MODEL.find().exec();
 }
 
-export { CREATE_POSITION_SERVICE, GET_POSITION_SERVICE, GET_POSITIONS_SERVICE }
+const UPDATE_POSITION_SERVICE = async (_id: string, position: Position) => {
+    return await POSITION_MODEL.findByIdAndUpdate(_id, position, { new: true });
+}
+
+export { CREATE_POSITION_SERVICE, GET_POSITION_SERVICE, GET_POSITIONS_SERVICE, UPDATE_POSITION_SERVICE }

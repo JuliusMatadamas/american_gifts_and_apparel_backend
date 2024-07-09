@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/JuliusMatadamas/american_gifts_and_apparel_backend#readme",
   "dependencies": {
-    "@types/mongoose-unique-validator": "^1.0.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -37,6 +36,7 @@
     "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
+    "@types/mongoose-unique-validator": "^1.0.9",
     "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",

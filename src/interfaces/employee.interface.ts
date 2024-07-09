@@ -6,15 +6,17 @@ enum Genre {
 }
 
 export interface Employee {
-    _id: string;
+    _id?: string;
     firstName: string;
     lastName: string;
-    birthDate: string;
+    birthDate: Date;
     genre: Genre;
     email: string;
     mobile: string;
-    address: string;
-    starting: string;
-    ending: string;
+    address?: string;
+    starting: Date;
+    ending: Date;
     idPosition: Position['_id'];
+    createdAt?: string;
+    updatedAt?: string;
 }
