@@ -11,6 +11,7 @@ export interface User {
     password: string;
     status: Status;
     token: string;
-    createdAt?: string;
-    updatedAt?: string;
+    expirationToken: Date;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

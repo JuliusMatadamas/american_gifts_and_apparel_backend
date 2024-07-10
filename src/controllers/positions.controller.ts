@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
 import {HANDLE_HTTP_ERROR, HANDLE_HTTP_OK} from "../utils/handle.responses";
-import {CREATE_POSITION_SERVICE, GET_POSITION_SERVICE, GET_POSITIONS_SERVICE, UPDATE_POSITION_SERVICE} from "../services/positions.service";
+import {CREATE_POSITION_SERVICE, GET_POSITION_SERVICE, GET_POSITIONS_SERVICE, UPDATE_POSITION_SERVICE, DELETE_POSITION_SERVICE} from "../services/positions.service";
 import {POSITIONS_FILTER} from "../helpers/positions.filter";
 
 const GET_POSITIONS = async (req: Request, res: Response) => {
@@ -35,7 +35,7 @@ const CREATE_POSITION = async (req: Request, res: Response) => {
     try {
         const NEW_POSITION = await CREATE_POSITION_SERVICE(req.body);
         const DATA = POSITIONS_FILTER(NEW_POSITION);
-        HANDLE_HTTP_OK(res, 201, "Position created successfully", DATA);
+        HANDLE_HTTP_OK(res, 201, "Position correctly created", DATA);
     } catch (error) {
         error instanceof Error ? HANDLE_HTTP_ERROR(res, 500, error.message) : HANDLE_HTTP_ERROR(res, 500, 'Unknown error');
     }
@@ -45,14 +45,17 @@ const UPDATE_POSITION = async (req: Request, res: Response) => {
     try {
         const UPDATED_POSITION = await UPDATE_POSITION_SERVICE(req.params.id, req.body)
         const DATA = POSITIONS_FILTER(UPDATED_POSITION);
-        HANDLE_HTTP_OK(res, 200, "Position updated correctly", DATA);
+        HANDLE_HTTP_OK(res, 200, "Position correctly updated", DATA);
     } catch (error) {
         error instanceof Error ? HANDLE_HTTP_ERROR(res, 500, error.message) : HANDLE_HTTP_ERROR(res, 500, 'Unknown error');
     }
 }
 
-const DELETE_POSITION = (req: Request, res: Response) => {
+const DELETE_POSITION = async (req: Request, res: Response) => {
     try {
+        const DELETED_POSITION = await DELETE_POSITION_SERVICE(req.params.id)
+        const DATA = POSITIONS_FILTER(DELETED_POSITION);
+        HANDLE_HTTP_OK(res, 200, "Position correctly deleted", DATA);
     } catch (error) {
         error instanceof Error ? HANDLE_HTTP_ERROR(res, 500, error.message) : HANDLE_HTTP_ERROR(res, 500,  'Unknown error');
     }

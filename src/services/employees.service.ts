@@ -6,7 +6,7 @@ const GET_EMPLOYEES_SERVICE = async () => {
 };
 
 const GET_EMPLOYEE_SERVICE = async (_id: string) => {
-    return await EMPLOYEE_MODEL.findById(_id);
+    return EMPLOYEE_MODEL.findById(_id);
 };
 
 const CREATE_EMPLOYEE_SERVICE = async (employee: Employee) => {
@@ -14,7 +14,7 @@ const CREATE_EMPLOYEE_SERVICE = async (employee: Employee) => {
 };
 
 const UPDATE_EMPLOYEE_SERVICE = async (_id: string, employee: Employee) => {
-    return await EMPLOYEE_MODEL.findByIdAndUpdate(_id, employee, { new: true});
+    return EMPLOYEE_MODEL.findByIdAndUpdate(_id, employee, { new: true});
 }
 
 export {GET_EMPLOYEES_SERVICE,GET_EMPLOYEE_SERVICE,CREATE_EMPLOYEE_SERVICE,UPDATE_EMPLOYEE_SERVICE}
