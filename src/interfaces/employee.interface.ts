@@ -17,6 +17,6 @@ export interface Employee {
     starting: Date;
     ending: Date;
     idPosition: Position['_id'];
-    createdAt?: string;
-    updatedAt?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
