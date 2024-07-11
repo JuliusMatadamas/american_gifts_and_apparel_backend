@@ -93,7 +93,7 @@ USER_SCHEMA.plugin(uniqueValidator, { message: "The {PATH} is already registered
 USER_SCHEMA.pre('save', async function (next) {
     const USER_DOCUMENT = this as unknown as HydratedDocument<User> & { password: string, token?: string, expirationToken?: Date };
     const SALT = await bcrypt.genSalt(10);
-    const SK = process.env.SECRET_KEY || "5ll1BcEuPEXvUQFe8qO75R70sT66j74XvYen";
+    const SK = process.env.SECRET_KEY;
     const employeeExists = await EMPLOYEE_MODEL.exists({ _id: USER_DOCUMENT._id });
 
     if (!employeeExists) {
@@ -105,6 +105,7 @@ USER_SCHEMA.pre('save', async function (next) {
         USER_DOCUMENT.password = await bcrypt.hash(USER_DOCUMENT.password, SALT);
     }
 
+    // @ts-ignore
     USER_DOCUMENT.token = jwt.sign({ _id: USER_DOCUMENT._id }, SK, { expiresIn: '9h' });
     USER_DOCUMENT.expirationToken = new Date(Date.now() + 9 * 60 * 60 * 1000);
     next();

@@ -197,6 +197,7 @@ const EMPLOYEE_SCHEMA_FIELDS: EmployeeSchemaType = {
     }
 };
 
+// @ts-ignore
 const EMPLOYEE_SCHEMA = new Schema(EMPLOYEE_SCHEMA_FIELDS, {
     timestamps: true,
     versionKey: false

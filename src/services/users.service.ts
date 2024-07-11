@@ -26,7 +26,8 @@ const UPDATE_USER_SERVICE = async (_id: string, user: User) => {
         // @ts-ignore
         user.expirationToken = "";
     } else if (user.status === 'active') {
-        const SK = process.env.SECRET_KEY || "5ll1BcEuPEXvUQFe8qO75R70sT66j74XvYen";
+        const SK = process.env.SECRET_KEY;
+        // @ts-ignore
         user.token = jwt.sign({ _id: existingUser._id }, SK, { expiresIn: '9h' });
         user.expirationToken = new Date(Date.now() + 9 * 60 * 60 * 1000);
     }

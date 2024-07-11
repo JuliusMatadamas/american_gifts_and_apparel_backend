@@ -18,7 +18,6 @@ interface PositionSchemaType extends SchemaTypeOptions<Position> {
     };
 }
 
-
 const POSITION_SCHEMA_FIELDS: PositionSchemaType = {
     name: {
         type: String,
