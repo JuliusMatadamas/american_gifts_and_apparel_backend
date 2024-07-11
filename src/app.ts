@@ -1,15 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import moment from "moment-timezone";
 import {ROUTER} from "./routes/index.route";
 import db from "./config/db";
 
 const PORT = process.env.PORT || 3001;
 const APP = express();
-
-const TIMEZONE = process.env.TIMEZONE || "America/Matamoros";
-moment.tz.setDefault(TIMEZONE);
 
 APP.use(cors());
 APP.use(express.json());

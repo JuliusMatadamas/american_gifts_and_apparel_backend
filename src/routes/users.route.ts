@@ -1,4 +1,4 @@
-import {NextFunction, Router} from "express";
+import {Router} from "express";
 import {CREATE_USER, DELETE_USER, GET_USER, GET_USERS, UPDATE_USER} from "../controllers/users.controllers";
 import AUTH_MIDDLEWARE from "../middlewares/auth.middleware";
 
